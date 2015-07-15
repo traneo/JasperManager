@@ -25,6 +25,25 @@ namespace JasperManager
             port = Port;
             serverName = ServerName;
 
+            GerenateUrlBase();
+        }
+
+        /// <summary>
+        /// Armazenar as informações do servidor jasper
+        /// </summary>
+        /// <param name="Domain">Dominio do servidor ex.: localhost ou www.myserver.jasper.com</param>
+        public JasperConfig(string Domain)
+        {
+            // TODO: Complete member initialization
+            domain = Domain;
+            port = 8080;
+            serverName = "jasperserver";
+
+            GerenateUrlBase();
+        }
+
+        private void GerenateUrlBase()
+        {
             baseURL = string.Format("http://{0}:{1}/{2}/rest_v2/", domain, port, serverName);
         }
 
