@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JasperReportTeste", "JasperReportTeste\JasperReportTeste.csproj", "{501C216E-0A57-4A7D-8051-1EBEF85D04CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JasperManager", "JasperManager\JasperManager.csproj", "{87C7F3A4-4B0F-4C35-AB23-DB8101DB6CCD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{501C216E-0A57-4A7D-8051-1EBEF85D04CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{501C216E-0A57-4A7D-8051-1EBEF85D04CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{501C216E-0A57-4A7D-8051-1EBEF85D04CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{501C216E-0A57-4A7D-8051-1EBEF85D04CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87C7F3A4-4B0F-4C35-AB23-DB8101DB6CCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87C7F3A4-4B0F-4C35-AB23-DB8101DB6CCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87C7F3A4-4B0F-4C35-AB23-DB8101DB6CCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87C7F3A4-4B0F-4C35-AB23-DB8101DB6CCD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
