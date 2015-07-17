@@ -47,7 +47,7 @@ namespace JasperReportTeste.Controllers
 
             var response = report.Get("/reports/Banco", new { UsuarioLogado = "Tadeu Rodrigues Arias" }, JasperReportFormat.PDF);
 
-            return File(response.GetDocumento(), response.GetJasperContentType(), response.DefineFileName("Exemplo"));
+            return File(response.GetDocument(), response.GetContentType(), response.DefineFileName("Exemplo"));
         }
 
     }

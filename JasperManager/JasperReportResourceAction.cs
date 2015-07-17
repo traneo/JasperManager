@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace JasperManager
 {
+    /// <summary>
+    /// Ações disponíveis para as pastas.
+    /// </summary>
     public enum JasperReportFolderAction
     {
         CREATE,

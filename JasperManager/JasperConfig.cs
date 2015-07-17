@@ -8,10 +8,10 @@ namespace JasperManager
 {
     public class JasperConfig
     {
-        private string domain { get; set; }
-        private int port { get; set; }
-        private string serverName { get; set; }
-        private string baseURL { get; set; }
+        private string Domain { get; set; }
+        private int Port { get; set; }
+        private string ServerName { get; set; }
+        private string BaseURL { get; set; }
 
         /// <summary>
         /// Armazenar as informações do servidor jasper
@@ -21,9 +21,9 @@ namespace JasperManager
         /// <param name="ServerName">Nome da instancia do servidor do jasper, ex.: jasperserver</param>
         public JasperConfig(string Domain, int Port, string ServerName)
         {
-            domain = Domain;
-            port = Port;
-            serverName = ServerName;
+            this.Domain = Domain;
+            this.Port = Port;
+            this.ServerName = ServerName;
 
             GerenateUrlBase();
         }
@@ -35,16 +35,16 @@ namespace JasperManager
         public JasperConfig(string Domain)
         {
             // TODO: Complete member initialization
-            domain = Domain;
-            port = 8080;
-            serverName = "jasperserver";
+            this.Domain = Domain;
+            Port = 8080;
+            ServerName = "jasperserver";
 
             GerenateUrlBase();
         }
 
         private void GerenateUrlBase()
         {
-            baseURL = string.Format("http://{0}:{1}/{2}/rest_v2/", domain, port, serverName);
+            BaseURL = string.Format("http://{0}:{1}/{2}/rest_v2/", Domain, Port, ServerName);
         }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace JasperManager
         /// <returns>retorna a url formatada de acordo com os paramentros informados no contrutor.</returns>
         public string GetBaseUrl()
         {
-            return baseURL;
+            return BaseURL;
         }
     }
 }

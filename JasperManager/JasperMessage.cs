@@ -8,7 +8,7 @@ namespace JasperManager
 {
     public enum JasperStatus
     {
-        Erro,
+        Error,
         Success
     }
 }

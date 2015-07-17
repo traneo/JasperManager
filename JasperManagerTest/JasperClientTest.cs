@@ -24,8 +24,8 @@ namespace JasperManagerTest
 
             var response = report.Get("/reports/interactive/TableReport", new { UsuarioLogado = "Usuario de Testes" }, JasperReportFormat.PDF);
 
-            Assert.AreNotEqual(new byte[0], response.GetDocumento());
-            Assert.AreEqual("application/PDF", response.GetJasperContentType());
+            Assert.AreNotEqual(new byte[0], response.GetDocument());
+            Assert.AreEqual("application/PDF", response.GetContentType());
             Assert.AreEqual("Exemplo.pdf", response.DefineFileName("Exemplo"));
         }
 

@@ -30,6 +30,11 @@ namespace JasperManager
             return query;
         }
 
+        /// <summary>
+        /// Serializar Objetos
+        /// </summary>
+        /// <param name="Obj">Objeto a ser seriallizado</param>
+        /// <returns>string em json</returns>
         internal static string ToJson(this object Obj)
         {
             string Json = string.Empty;

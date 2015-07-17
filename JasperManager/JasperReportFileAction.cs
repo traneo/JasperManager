@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace JasperManager
 {
+    /// <summary>
+    /// Ações disponíveis para os arquivos.
+    /// </summary>
     public enum JasperReportFileAction
     {
         UPLOAD,

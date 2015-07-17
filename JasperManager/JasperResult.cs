@@ -9,48 +9,47 @@ namespace JasperManager
 {
     public class JasperResult
     {
-        private byte[] arquivo;
-        private string Endereco;
-        private object Parametros;
+        private byte[] File;
+        private string Url;
+        private object Param;
         private JasperReportFormat JasperReportFormat;
         private JasperStatus Status;
         private JasperDescriptor Descriptor;
-        private JasperStatus jasperMessage;
-        private string MessageDetais;
+        private string MessageDetails;
 
-        public JasperResult(byte[] arquivo, string Endereco, object Parametros, JasperReportFormat JasperReportFormat)
+        public JasperResult(byte[] File, string Url, object Param, JasperReportFormat JasperReportFormat)
         {
             // TODO: Complete member initialization
-            this.arquivo = arquivo;
-            this.Endereco = Endereco;
-            this.Parametros = Parametros;
+            this.File = File;
+            this.Url = Url;
+            this.Param = Param;
             this.JasperReportFormat = JasperReportFormat;
         }
 
-        public JasperResult(string Endereco, object Parametros, JasperStatus Status)
+        public JasperResult(string Url, object Param, JasperStatus Status)
         {
-            this.arquivo = null;
-            this.Endereco = Endereco;
-            this.Parametros = Parametros;
+            this.File = null;
+            this.Url = Url;
+            this.Param = Param;
             this.Status = Status;
         }
 
-        public JasperResult(string Endereco, JasperDescriptor Descriptor, JasperStatus Status, string MessageDetais)
+        public JasperResult(string Url, JasperDescriptor Descriptor, JasperStatus Status, string MessageDetails)
         {
             // TODO: Complete member initialization
-            this.Endereco = Endereco;
+            this.Url = Url;
             this.Descriptor = Descriptor;
-            this.jasperMessage = Status;
-            this.MessageDetais = MessageDetais;
+            this.Status = Status;
+            this.MessageDetails = MessageDetails;
         }
 
         /// <summary>
         /// Retorna documento obtido na requisição ao jasper
         /// </summary>
         /// <returns>array de bytes que representa o arquivo binario solicitado ao jasper</returns>
-        public byte[] GetDocumento()
+        public byte[] GetDocument()
         {
-            return arquivo;
+            return File;
         }
         /// <summary>
         /// Montar o nome do documento baseado no tipo de relatorio requisitado
@@ -66,7 +65,7 @@ namespace JasperManager
         /// Obtem o Content-Type adequado a solicitação do relatorio.
         /// </summary>
         /// <returns>application/x , sendo x = pdf, xml, doc, etc.</returns>
-        public string GetJasperContentType()
+        public string GetContentType()
         {
             return string.Format("application/{0}", JasperReportFormat.ToString());
         }
@@ -78,7 +77,7 @@ namespace JasperManager
 
         public string GetMessage()
         {
-            return MessageDetais;
+            return MessageDetails;
         }
     }
 }
