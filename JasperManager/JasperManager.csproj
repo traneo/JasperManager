@@ -42,9 +42,14 @@
     <Compile Include="JasperAuthorization.cs" />
     <Compile Include="JasperConfig.cs" />
     <Compile Include="JasperClient.cs" />
+    <Compile Include="JasperDescriptor.cs" />
     <Compile Include="JasperExecutionRequest.cs" />
     <Compile Include="JasperExt.cs" />
+    <Compile Include="JasperHttpMethod.cs" />
+    <Compile Include="JasperMessage.cs" />
+    <Compile Include="JasperReportFileAction.cs" />
     <Compile Include="JasperReportFormat.cs" />
+    <Compile Include="JasperReportResourceAction.cs" />
     <Compile Include="JasperResult.cs" />
     <Compile Include="JasperResultAsync.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

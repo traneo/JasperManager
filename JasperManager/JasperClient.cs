@@ -87,5 +87,117 @@ namespace JasperManager
 
             return new JasperResultAsync(Response, web.ResponseHeaders);
         }
+
+        public void MakeFolder(string Path)
+        {
+            /*
+                {
+                    "label":"Sample Label", 
+                    "description":"Sample Description 2021", 
+                    "permissionMask":"0",
+                    "creationDate": "2013-07-04T12:18:47",
+                    "updateDate": "2013-07-04T12:18:47", 
+                    "version":"0"
+                }
+             */
+
+            WebClient web = new WebClient();
+            web.Credentials = new NetworkCredential(auth.GetUsuario(), auth.GetPassword());
+
+            string Endereco = string.Format("{0}reports{1}", config.GetBaseUrl(), Path);
+        }
+
+        public JasperResult Folder(string Path, JasperReportFolderAction JasperReportResourceAction, JasperDescriptor Descriptor)
+        {
+            JasperHttpMethod Method = JasperHttpMethod.GET;
+
+            switch (JasperReportResourceAction)
+            {
+                case JasperReportFolderAction.CREATE:
+                    {
+                        Method = JasperHttpMethod.POST;
+                        Descriptor.CreationDate = DateTime.Now;
+                    }
+                    break;
+                case JasperReportFolderAction.DELETE:
+                    {
+                        Method = JasperHttpMethod.DELETE;
+                    }
+                    break;
+                case JasperReportFolderAction.UPDATE:
+                    {
+                        Method = JasperHttpMethod.POST;
+                        Descriptor.UpdateDate = DateTime.Now;
+                    }
+                    break;
+                default:
+                    break;
+            }
+
+            WebClient web = new WebClient();
+            web.Credentials = new NetworkCredential(auth.GetUsuario(), auth.GetPassword());
+            web.Headers.Add("Content-Type", " application/repository.folder+json");
+
+            string Endereco = string.Format("{0}resources{1}", config.GetBaseUrl(), Path);
+
+            try
+            {
+                web.UploadString(Endereco, Method.ToString(), Descriptor.ToJson());
+
+                return new JasperResult(Endereco, null, JasperStatus.Success);
+            }
+            catch (WebException ex)
+            {
+                return new JasperResult(Endereco, Descriptor, JasperStatus.Erro, ex.Message);
+            }
+        }
+
+        public JasperResult Folder(string Path, JasperReportFolderAction JasperReportResourceAction)
+        {
+            return Folder(Path, JasperReportResourceAction, new JasperDescriptor());
+        }
+
+        public JasperResult File(string Path, JasperReportFileAction Action, JasperDescriptor Descriptor)
+        {
+            JasperHttpMethod Method = JasperHttpMethod.POST;
+
+            WebClient web = new WebClient();
+            web.Credentials = new NetworkCredential(auth.GetUsuario(), auth.GetPassword());
+            web.Headers.Add("Content-Type", "application/repository.file+json");
+
+            string Endereco = string.Format("{0}resources{1}", config.GetBaseUrl(), Path);
+
+            try
+            {
+                web.UploadString(Endereco, Method.ToString(), Descriptor.ToJson());
+
+                return new JasperResult(Endereco, null, JasperStatus.Success);
+            }
+            catch (WebException ex)
+            {
+                return new JasperResult(Endereco, Descriptor, JasperStatus.Erro, ex.Message);
+            }
+        }
+
+        public JasperResult File(string Path, JasperReportFileAction Action)
+        {
+            JasperHttpMethod Method = JasperHttpMethod.DELETE;
+
+            WebClient web = new WebClient();
+            web.Credentials = new NetworkCredential(auth.GetUsuario(), auth.GetPassword());
+
+            string Endereco = string.Format("{0}resources{1}", config.GetBaseUrl(), Path);
+
+            try
+            {
+                web.UploadString(Endereco, Method.ToString(), string.Empty);
+
+                return new JasperResult(Endereco, null, JasperStatus.Success);
+            }
+            catch (WebException ex)
+            {
+                return new JasperResult(Endereco, null, JasperStatus.Erro, ex.Message);
+            }
+        }
     }
 }

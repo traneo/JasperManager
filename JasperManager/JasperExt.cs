@@ -29,5 +29,30 @@ namespace JasperManager
 
             return query;
         }
+
+        internal static string ToJson(this object Obj)
+        {
+            string Json = string.Empty;
+
+            foreach (var property in Obj.GetType().GetProperties())
+            {
+                string key = property.Name.ToLower();
+                object value = property.GetValue(Obj);
+
+                string Textvalue = string.Empty;
+
+                if (value != null)
+                {
+                    Textvalue = value.ToString();
+
+                    if (property.PropertyType == typeof(bool)) // java serializa boolean apenas se estiver lowerCase
+                        value = Textvalue.ToLower();
+
+                    Json += string.Format(",\"{0}\":\"{1}\"", key, Textvalue);
+                }
+            }
+
+            return "{" + Json.Substring(1) + "}";
+        }
     }
 }
