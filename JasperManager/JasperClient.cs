@@ -97,7 +97,6 @@ namespace JasperManager
                 case JasperReportFolderAction.CREATE:
                     {
                         method = JasperHttpMethod.POST;
-                        Descriptor.CreationDate = DateTime.Now;
                     }
                     break;
                 case JasperReportFolderAction.DELETE:
@@ -108,7 +107,6 @@ namespace JasperManager
                 case JasperReportFolderAction.UPDATE:
                     {
                         method = JasperHttpMethod.POST;
-                        Descriptor.UpdateDate = DateTime.Now;
                     }
                     break;
                 default:
@@ -147,7 +145,6 @@ namespace JasperManager
                 case JasperReportFileAction.UPLOAD:
                     {
                         method = JasperHttpMethod.POST;
-                        Descriptor.CreationDate = DateTime.Now;
                     }
                     break;
                 case JasperReportFileAction.DELETE:
@@ -180,6 +177,28 @@ namespace JasperManager
         public JasperResult File(string Path, JasperReportFileAction Action)
         {
             return File(Path, Action, new JasperDescriptor());
+        }
+
+        public JasperResult DeployReport(string Path, JasperDescriptor Descriptor)
+        {
+            JasperHttpMethod method = JasperHttpMethod.POST;
+
+            WebClient web = new WebClient();
+            web.Credentials = new NetworkCredential(Auth.GetUsuario(), Auth.GetPassword());
+            web.Headers.Add("Content-Type", "application/repository.reportUnit+json");
+
+            string url = string.Format("{0}resources{1}", Config.GetBaseUrl(), Path);
+
+            try
+            {
+                string response = web.UploadString(url, method.ToString(), Descriptor.ToJson());
+
+                return new JasperResult(url, null, JasperStatus.Success, response);
+            }
+            catch (WebException ex)
+            {
+                return new JasperResult(url, Descriptor, JasperStatus.Error, ex.Message);
+            }
         }
     }
 }

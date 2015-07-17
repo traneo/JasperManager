@@ -41,11 +41,11 @@ namespace JasperReportTeste.Controllers
 
         public ActionResult GetReport()
         {
-            JasperConfig config = new JasperConfig("labvm-spfvm2", 8080, "jasperserver");
+            JasperConfig config = new JasperConfig("localhost");
             JasperAuthorization auth = new JasperAuthorization("jasperadmin", "jasperadmin");
             JasperClient report = new JasperClient(config, auth);
 
-            var response = report.Get("/reports/Banco", new { UsuarioLogado = "Tadeu Rodrigues Arias" }, JasperReportFormat.PDF);
+            var response = report.Get("/reports/teste/ExemploTeste", new { UsuarioLogado = "Tadeu Rodrigues Arias" }, JasperReportFormat.PDF);
 
             return File(response.GetDocument(), response.GetContentType(), response.DefineFileName("Exemplo"));
         }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,7 +42,7 @@ namespace JasperManager
 
             foreach (var property in Obj.GetType().GetProperties())
             {
-                string key = property.Name.ToLower();
+                string key = property.Name.ToCamelCase();
                 object value = property.GetValue(Obj);
 
                 string Textvalue = string.Empty;
@@ -50,14 +51,35 @@ namespace JasperManager
                 {
                     Textvalue = value.ToString();
 
-                    if (property.PropertyType == typeof(bool)) // java serializa boolean apenas se estiver lowerCase
-                        value = Textvalue.ToLower();
+                    if (property.PropertyType == typeof(Nullable<bool>)) // java serializa boolean apenas se estiver lowerCase
+                        Textvalue = Textvalue.ToLower();
 
-                    Json += string.Format(",\"{0}\":\"{1}\"", key, Textvalue);
+                    if (property.PropertyType == typeof(Nullable<DateTime>))
+                    {
+                        DateTimeFormatInfo info = CultureInfo.CreateSpecificCulture("en").DateTimeFormat;
+                        Textvalue = ((DateTime)value).ToString(info);
+                    }
+
+                    if (property.PropertyType.FullName == "System.Object")
+                    {
+                        Textvalue = value.ToString();
+                        Json += string.Format(",\"{0}\": {1} ", key, Textvalue);
+                    }
+                    else
+                        Json += string.Format(",\"{0}\":\"{1}\"", key, Textvalue);
                 }
             }
 
+            if (string.IsNullOrWhiteSpace(Json))
+                return string.Empty;
+
             return "{" + Json.Substring(1) + "}";
+        }
+
+        internal static string ToCamelCase(this string texto)
+        {
+            string firstLetter = texto.Substring(0, 1);
+            return firstLetter.ToLower() + texto.Substring(1);
         }
     }
 }

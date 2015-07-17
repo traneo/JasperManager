@@ -43,70 +43,17 @@
 			<pen lineWidth="0.5" lineColor="#000000"/>
 		</box>
 	</style>
-	<subDataset name="SqlDocumento" uuid="f1019c54-dc1f-4377-9753-54ccc4871776">
-		<queryString language="SQL">
-			<![CDATA[SELECT
-     top 100 *
-FROM
-     "Exefin"."Documento" Documento]]>
-		</queryString>
-		<field name="DocumentoID" class="java.lang.Integer"/>
-		<field name="FonteRecursoID" class="java.lang.Integer"/>
-		<field name="TipoDocumentoContabilID" class="java.lang.Integer"/>
-		<field name="UnidadeGestoraCodigoEmitente" class="java.lang.Integer"/>
-		<field name="DataEmissao" class="java.sql.Date"/>
-		<field name="Numero" class="java.lang.String"/>
-		<field name="ValorEstorno" class="java.math.BigDecimal"/>
-		<field name="Estorno" class="java.lang.String"/>
-		<field name="Situacao" class="java.lang.String"/>
-		<field name="ValorDocumento" class="java.math.BigDecimal"/>
-		<field name="DataContabilizacao" class="java.sql.Date"/>
-	</subDataset>
 	<queryString>
-		<![CDATA[select top 100 * from Exefin.Documento]]>
+		<![CDATA[select 1+1 as Soma]]>
 	</queryString>
-	<field name="DocumentoID" class="java.lang.Integer"/>
-	<field name="DocumentoOriginalID" class="java.lang.Integer"/>
-	<field name="CredorIdentificacao" class="java.lang.String"/>
-	<field name="FonteRecursoID" class="java.lang.Integer"/>
-	<field name="TipoDocumentoContabilID" class="java.lang.Integer"/>
-	<field name="UnidadeGestoraCodigoEmitente" class="java.lang.Integer"/>
-	<field name="UnidadeGestoraDataInicioVigenciaEmitente" class="java.sql.Timestamp"/>
-	<field name="UnidadeGestoraCodigoFavorecida" class="java.lang.Integer"/>
-	<field name="UnidadeGestoraDataInicioVigenciaFavorecida" class="java.sql.Timestamp"/>
-	<field name="DominioIDTipoReferencia" class="java.lang.Integer"/>
-	<field name="DominioIDGrupoDocumentoContabil" class="java.lang.Integer"/>
-	<field name="EsferaCodigo" class="java.lang.Integer"/>
-	<field name="NaturezaDespesaID" class="java.lang.Integer"/>
-	<field name="LocalizadorID" class="java.lang.Integer"/>
-	<field name="DataEmissao" class="java.sql.Date"/>
-	<field name="Numero" class="java.lang.String"/>
-	<field name="ValorEstorno" class="java.math.BigDecimal"/>
-	<field name="DocumentoReferencia" class="java.lang.String"/>
-	<field name="DataDocumentoReferencia" class="java.sql.Date"/>
-	<field name="EventoID" class="java.lang.Integer"/>
-	<field name="Estorno" class="java.lang.String"/>
-	<field name="Observacao" class="java.lang.String"/>
-	<field name="UsuarioInclusaoRegistro" class="java.lang.String"/>
-	<field name="DataInclusaoRegistro" class="java.sql.Timestamp"/>
-	<field name="UsuarioAlteracaoRegistro" class="java.lang.String"/>
-	<field name="DataAlteracaoRegistro" class="java.sql.Timestamp"/>
-	<field name="DataContabilizacao" class="java.sql.Date"/>
-	<field name="ValorDocumento" class="java.math.BigDecimal"/>
-	<field name="PropostaLOAID" class="java.lang.Integer"/>
-	<field name="Situacao" class="java.lang.String"/>
-	<field name="Justificativa" class="java.lang.String"/>
-	<field name="DominioIDOpcaoLancamento" class="java.lang.Integer"/>
-	<field name="IdentificadorUsoCodigo" class="java.lang.Integer"/>
-	<field name="PedidoAlteracaoID" class="java.lang.Integer"/>
-	<field name="IdentificadorRestos" class="java.lang.String"/>
+	<field name="Soma" class="java.lang.Integer"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
 		<band height="79" splitType="Stretch">
 			<staticText>
-				<reportElement x="98" y="16" width="365" height="40" uuid="b04c343f-4a6c-4abe-8e43-c37d1e7b56ec"/>
+				<reportElement x="15" y="16" width="365" height="40" uuid="b04c343f-4a6c-4abe-8e43-c37d1e7b56ec"/>
 				<textElement>
 					<font size="24"/>
 				</textElement>
@@ -122,208 +69,10 @@ FROM
 	</columnHeader>
 	<detail>
 		<band height="125" splitType="Stretch">
-			<componentElement>
-				<reportElement key="table 1" style="table 1" x="0" y="0" width="802" height="125" uuid="022c93b7-4b75-4254-baa9-e45fddc2d09f"/>
-				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-					<datasetRun subDataset="SqlDocumento" uuid="dbefb634-dba1-450d-8f65-4a36409a8cf4">
-						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-					</datasetRun>
-					<jr:column width="90" uuid="50ec9373-92e4-4515-974d-10f3ef34afb7">
-						<jr:tableHeader style="table 1_TH" height="30" rowSpan="1"/>
-						<jr:tableFooter style="table 1_TH" height="30" rowSpan="1"/>
-						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
-							<staticText>
-								<reportElement x="0" y="0" width="90" height="30" uuid="469cb232-2281-4ba7-a4c7-90bd89409907"/>
-								<text><![CDATA[DocumentoID]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="table 1_TD" height="30" rowSpan="1">
-							<textField>
-								<reportElement x="0" y="0" width="90" height="20" uuid="b0376a9a-922c-4e4c-a384-219a0ba0a0cb"/>
-								<textFieldExpression><![CDATA[$F{DocumentoID}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
-					<jr:column width="90" uuid="e3ed4ab9-bdb6-4f46-9bf9-a2bad79ba9c3">
-						<jr:tableHeader style="table 1_TH" height="30" rowSpan="1"/>
-						<jr:tableFooter style="table 1_TH" height="30" rowSpan="1"/>
-						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
-							<staticText>
-								<reportElement x="0" y="0" width="90" height="30" uuid="5dd667d2-43e1-482b-88f1-d924f1728d1a"/>
-								<text><![CDATA[FonteRecursoID]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="table 1_TD" height="30" rowSpan="1">
-							<textField>
-								<reportElement x="0" y="0" width="90" height="20" uuid="03502927-f7d4-4874-b648-a6ed3e65605d"/>
-								<textFieldExpression><![CDATA[$F{FonteRecursoID}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
-					<jr:column width="90" uuid="3541a21f-0748-426a-a61f-e1669c66430a">
-						<jr:tableHeader style="table 1_TH" height="30" rowSpan="1"/>
-						<jr:tableFooter style="table 1_TH" height="30" rowSpan="1"/>
-						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
-							<staticText>
-								<reportElement x="0" y="0" width="90" height="30" uuid="7f45a627-0336-4ef6-ba1e-dc4a97abde90"/>
-								<text><![CDATA[TipoDocumentoContabilID]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="table 1_TD" height="30" rowSpan="1">
-							<textField>
-								<reportElement x="0" y="0" width="90" height="20" uuid="2105d958-f70d-4be4-b5ce-f82fa6b55f12"/>
-								<textFieldExpression><![CDATA[$F{TipoDocumentoContabilID}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
-					<jr:column width="90" uuid="7ec37d14-6700-4907-a368-b71ae3544b21">
-						<jr:tableHeader style="table 1_TH" height="30" rowSpan="1"/>
-						<jr:tableFooter style="table 1_TH" height="30" rowSpan="1"/>
-						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
-							<staticText>
-								<reportElement x="0" y="0" width="90" height="30" uuid="400deec7-d1f5-4e58-9f8d-7b066af8fd53"/>
-								<text><![CDATA[UnidadeGestoraCodigoEmitente]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="table 1_TD" height="30" rowSpan="1">
-							<textField>
-								<reportElement x="0" y="0" width="90" height="20" uuid="d36b6109-b976-4a61-870d-c79d914ad2a9"/>
-								<textFieldExpression><![CDATA[$F{UnidadeGestoraCodigoEmitente}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
-					<jr:column width="90" uuid="951ffc8d-5525-4d74-8b52-284e0e455b14">
-						<jr:tableHeader style="table 1_TH" height="30" rowSpan="1"/>
-						<jr:tableFooter style="table 1_TH" height="30" rowSpan="1"/>
-						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
-							<staticText>
-								<reportElement x="0" y="0" width="90" height="30" uuid="ae69aeb8-d04a-4c20-af97-79037280fc96"/>
-								<text><![CDATA[DataEmissao]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="table 1_TD" height="30" rowSpan="1">
-							<textField>
-								<reportElement x="0" y="0" width="90" height="20" uuid="796e519d-fbc9-4739-87b1-ffca470a1898"/>
-								<textFieldExpression><![CDATA[$F{DataEmissao}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
-					<jr:column width="90" uuid="151af020-72f9-41c6-9d83-b33a9ecebcfc">
-						<jr:tableHeader style="table 1_TH" height="30" rowSpan="1"/>
-						<jr:tableFooter style="table 1_TH" height="30" rowSpan="1"/>
-						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
-							<staticText>
-								<reportElement x="0" y="0" width="90" height="30" uuid="3001659e-fcc0-4dab-9a72-ddb328bd51ab"/>
-								<text><![CDATA[Numero]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="table 1_TD" height="30" rowSpan="1">
-							<textField>
-								<reportElement x="0" y="0" width="90" height="20" uuid="a561c442-7a9a-4f07-b984-598c6ebb1ef5"/>
-								<textFieldExpression><![CDATA[$F{Numero}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
-					<jr:column width="90" uuid="e59bc73a-5415-4a87-bbc0-1b457ec2a1ef">
-						<jr:tableHeader style="table 1_TH" height="30" rowSpan="1"/>
-						<jr:tableFooter style="table 1_TH" height="30" rowSpan="1"/>
-						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
-							<staticText>
-								<reportElement x="0" y="0" width="90" height="30" uuid="b0852b19-a2f9-4e39-b7a5-90c303e95794"/>
-								<text><![CDATA[ValorEstorno]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="table 1_TD" height="30" rowSpan="1">
-							<textField>
-								<reportElement x="0" y="0" width="90" height="20" uuid="84bf6473-8df9-462c-990e-842ec1ad4db9"/>
-								<textFieldExpression><![CDATA[$F{ValorEstorno}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
-					<jr:column width="90" uuid="501ef2f8-3cf0-4703-8dd1-2f58cf4824ef">
-						<jr:tableHeader style="table 1_TH" height="30" rowSpan="1"/>
-						<jr:tableFooter style="table 1_TH" height="30" rowSpan="1"/>
-						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
-							<staticText>
-								<reportElement x="0" y="0" width="90" height="30" uuid="ff88903a-34f8-465b-b3c2-d0eca201d098"/>
-								<text><![CDATA[Estorno]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="table 1_TD" height="30" rowSpan="1">
-							<textField>
-								<reportElement x="0" y="0" width="90" height="20" uuid="32bdd1e1-dc0e-4150-b0cb-2045a1fd96f8"/>
-								<textFieldExpression><![CDATA[$F{Estorno}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
-					<jr:column width="90" uuid="91a490b6-832f-4a64-b588-c5bf5e798160">
-						<jr:tableHeader style="table 1_TH" height="30" rowSpan="1"/>
-						<jr:tableFooter style="table 1_TH" height="30" rowSpan="1"/>
-						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
-							<staticText>
-								<reportElement x="0" y="0" width="90" height="30" uuid="e11a617d-0ed9-4290-829d-3a1abbd91415"/>
-								<text><![CDATA[Situacao]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="table 1_TD" height="30" rowSpan="1">
-							<textField>
-								<reportElement x="0" y="0" width="90" height="20" uuid="7a81b9d4-061f-496b-a84d-d3a3ab941438"/>
-								<textFieldExpression><![CDATA[$F{Situacao}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
-					<jr:column width="90" uuid="d6d989f6-68c6-488b-a2ba-4a1813bffe86">
-						<jr:tableHeader style="table 1_TH" height="30" rowSpan="1"/>
-						<jr:tableFooter style="table 1_TH" height="30" rowSpan="1"/>
-						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
-							<staticText>
-								<reportElement x="0" y="0" width="90" height="30" uuid="4a0e1db3-0dd2-462a-92c2-7f9dae5e82a6"/>
-								<text><![CDATA[ValorDocumento]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="table 1_TD" height="30" rowSpan="1">
-							<textField>
-								<reportElement x="0" y="0" width="90" height="20" uuid="b932bc41-d634-4598-8f0e-0d3ff6d56019"/>
-								<textFieldExpression><![CDATA[$F{ValorDocumento}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
-					<jr:column width="90" uuid="a55c703e-1a49-4cd5-947a-7064b5122535">
-						<jr:tableHeader style="table 1_TH" height="30" rowSpan="1"/>
-						<jr:tableFooter style="table 1_TH" height="30" rowSpan="1"/>
-						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
-							<staticText>
-								<reportElement x="0" y="0" width="90" height="30" uuid="9815d4a9-0ebe-4773-9a1d-9ed761dcf8fe"/>
-								<text><![CDATA[DataContabilizacao]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:columnFooter style="table 1_CH" height="30" rowSpan="1"/>
-						<jr:detailCell style="table 1_TD" height="30" rowSpan="1">
-							<textField>
-								<reportElement x="0" y="0" width="90" height="20" uuid="4e30ea40-d66c-495f-818c-63623cf0c437"/>
-								<textFieldExpression><![CDATA[$F{DataContabilizacao}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
-					</jr:column>
-					<jr:column width="90" uuid="ea8518b8-b9a0-44a3-9919-905a2e2dc5b8">
-						<jr:tableHeader height="30" rowSpan="1"/>
-						<jr:tableFooter height="30" rowSpan="1"/>
-						<jr:columnHeader height="30" rowSpan="1"/>
-						<jr:columnFooter height="30" rowSpan="1"/>
-						<jr:detailCell height="30" rowSpan="1"/>
-					</jr:column>
-				</jr:table>
-			</componentElement>
+			<staticText>
+				<reportElement x="15" y="11" width="303" height="36" uuid="452f5faf-6612-4a1e-a392-27756e43104e"/>
+				<text><![CDATA[Relatório funcionando OK - Everything working fine]]></text>
+			</staticText>
 		</band>
 	</detail>
 	<columnFooter>
