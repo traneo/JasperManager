@@ -15,6 +15,21 @@ namespace JasperManager
             this.Content = Base64Text;
         }
 
+        public void ContentFile(string file)
+        {
+            byte[] reportFile = null;
+            using (System.IO.StreamReader read = new System.IO.StreamReader
+                (file))
+            {
+                reportFile = new byte[read.BaseStream.Length];
+                read.BaseStream.Read(reportFile, 0, (int)read.BaseStream.Length);
+            }
+
+            string Base64Text = Convert.ToBase64String(reportFile);
+
+            this.Content = Base64Text;
+        }
+
         public string Label { get; set; }
 
         public string Description { get; set; }
@@ -48,5 +63,7 @@ namespace JasperManager
         public object InputControls { get; set; }
 
         public object Resources { get; set; }
+
+
     }
 }
