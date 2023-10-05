@@ -10,3 +10,7 @@ Objetivo: Criar um cliente Jasper para C# baseado na API Rest v2.
   JasperManagerTest: Projeto de teste do cliente.
   
   JasperReportTeste: Aplicação MVC para teste da biblioteca.
+
+
+# Test for CodeRabbit
+Just a test to see how it works.    
